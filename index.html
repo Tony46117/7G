@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="7G Estate Management - Premium property management, estate development, and facility maintenance services in Kenya. Transforming properties into exceptional living spaces.">
+    <meta name="description" content="7G Estate Management - Premium property management, estate development, and facility maintenance services in Kenya.">
     <title>7G Estate Management | Premium Property Solutions</title>
+    <link rel="icon" href="7g-logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Prevent invisible page if JS fails */
         body { opacity: 0; }
         body.js-loaded { opacity: 1; transition: opacity 0.5s ease; }
     </style>
@@ -28,7 +28,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
-                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#portfolio" class="nav-link">Why Us</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <a href="https://wa.me/254723704168?text=Hello%207G%20Estate%20Management!" class="nav-cta" target="_blank">
@@ -42,7 +42,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Video -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-video-container">
             <video class="hero-video" autoplay muted loop playsinline>
@@ -54,7 +54,6 @@
             <div class="hero-badge">
                 <span class="badge-line"></span>
                 <span class="badge-text">Premium Estate Management</span>
-                <span class="badge-line"></span>
             </div>
             <h1 class="hero-title">
                 <span class="title-line">Building</span>
@@ -67,7 +66,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary">
-                    <span>Explore Services</span>
+                    <span>Our Services</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="https://wa.me/254723704168" class="btn btn-whatsapp" target="_blank">
@@ -75,29 +74,12 @@
                     <span>WhatsApp Us</span>
                 </a>
             </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="150">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Properties Managed</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="15">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="98">0</span>
-                    <span class="stat-plus">%</span>
-                    <span class="stat-label">Client Satisfaction</span>
-                </div>
-            </div>
         </div>
         <div class="scroll-indicator">
             <div class="mouse">
                 <div class="mouse-wheel"></div>
             </div>
-            <span>Scroll Down</span>
+            <span>Scroll</span>
         </div>
     </section>
 
@@ -141,10 +123,7 @@
                 </div>
                 <div class="about-visual">
                     <div class="about-card">
-                        <div class="card-image">
-                            <img src="7g-logo.png" alt="7G Logo" class="about-logo">
-                        </div>
-                        <div class="card-accent"></div>
+                        <img src="7g-logo.png" alt="7G Logo" class="about-logo">
                     </div>
                 </div>
             </div>
@@ -156,11 +135,11 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">What We Do</span>
-                <h2 class="section-title">Our Premium <span class="text-accent">Services</span></h2>
+                <h2 class="section-title">Our <span class="text-accent">Services</span></h2>
                 <p class="section-subtitle">Comprehensive estate management solutions tailored to your needs</p>
             </div>
             <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
@@ -175,7 +154,7 @@
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-                <div class="service-card featured" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card featured">
                     <div class="service-badge">Most Popular</div>
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
@@ -191,7 +170,7 @@
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
@@ -206,7 +185,7 @@
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
@@ -225,7 +204,7 @@
         </div>
     </section>
 
-    <!-- Portfolio/Why Choose Us Section -->
+    <!-- Why Choose Us Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header">

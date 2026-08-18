@@ -52,45 +52,6 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink);
 
-// ===== Counter Animation =====
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        
-        updateCounter();
-    });
-}
-
-// Intersection Observer for counter animation
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const statsSection = document.querySelector('.hero-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
-
 // ===== Scroll Reveal Animation =====
 function setupScrollReveal() {
     const revealElements = document.querySelectorAll(
@@ -111,8 +72,8 @@ function setupScrollReveal() {
     
     revealElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.5s ease';
         revealObserver.observe(el);
     });
 }
@@ -134,10 +95,10 @@ contactForm.addEventListener('submit', (e) => {
     
     // Create WhatsApp message
     let whatsappMessage = `Hello! I'm ${name}.\n\n`;
-    whatsappMessage += `📧 Email: ${email}\n`;
-    if (phone) whatsappMessage += `📞 Phone: ${phone}\n`;
-    if (service) whatsappMessage += `🏢 Service: ${service}\n`;
-    whatsappMessage += `\n💬 Message: ${message}`;
+    whatsappMessage += `Email: ${email}\n`;
+    if (phone) whatsappMessage += `Phone: ${phone}\n`;
+    if (service) whatsappMessage += `Service: ${service}\n`;
+    whatsappMessage += `\nMessage: ${message}`;
     
     // Encode for WhatsApp URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -149,7 +110,7 @@ contactForm.addEventListener('submit', (e) => {
     // Show success feedback
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
-    btn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
+    btn.innerHTML = '<span>Opening WhatsApp...</span> <i class="fas fa-check"></i>';
     btn.style.background = '#25d366';
     
     setTimeout(() => {
@@ -179,28 +140,9 @@ window.addEventListener('scroll', () => {
     const heroContent = document.querySelector('.hero-content');
     
     if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+        heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
         heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
     }
-});
-
-// ===== Service Card Tilt Effect =====
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
 });
 
 // ===== Page Load Animation =====
@@ -208,5 +150,5 @@ window.addEventListener('load', () => {
     document.body.classList.add('js-loaded');
 });
 
-// Initialize body opacity via CSS class (safer than inline styles)
+// Initialize body opacity via CSS class
 document.body.classList.add('js-loaded');
