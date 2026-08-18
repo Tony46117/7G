@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="7G Estate Management - Premium property management, estate development, and facility maintenance services in Kenya. Transforming properties into exceptional living spaces.">
+    <title>7G Estate Management | Premium Property Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Prevent invisible page if JS fails */
+        body { opacity: 0; }
+        body.js-loaded { opacity: 1; transition: opacity 0.5s ease; }
+    </style>
+    <noscript><style>body { opacity: 1 !important; }</style></noscript>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="7g-logo.png" alt="7G Estate Management" class="logo-img">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="https://wa.me/254723704168?text=Hello%207G%20Estate%20Management!" class="nav-cta" target="_blank">
+                <i class="fab fa-whatsapp"></i> Get in Touch
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video -->
+    <section class="hero" id="home">
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-line"></span>
+                <span class="badge-text">Premium Estate Management</span>
+                <span class="badge-line"></span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Building</span>
+                <span class="title-line title-accent">Excellence</span>
+                <span class="title-line">In Every Detail</span>
+            </h1>
+            <p class="hero-subtitle">
+                Transforming properties into exceptional living spaces through expert management, 
+                innovative solutions, and unwavering commitment to quality.
+            </p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">
+                    <span>Explore Services</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://wa.me/254723704168" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp Us</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Properties Managed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-plus">+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span>
+                    <span class="stat-plus">%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">About Us</span>
+                    <h2 class="section-title">Redefining Estate Management <span class="text-accent">Since 2009</span></h2>
+                    <p class="about-text">
+                        7G Estate Management has been at the forefront of property management excellence in Kenya. 
+                        We combine traditional values of integrity and craftsmanship with modern innovation to deliver 
+                        unparalleled estate management services.
+                    </p>
+                    <p class="about-text">
+                        Our team of experienced professionals is dedicated to maximizing property values while ensuring 
+                        tenant satisfaction. From residential complexes to commercial properties, we handle every aspect 
+                        of estate management with precision and care.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Trusted & Secure</h4>
+                                <p>Your property is in safe hands with our comprehensive security protocols</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Value Maximization</h4>
+                                <p>Strategic management to increase your property's worth over time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-card">
+                        <div class="card-image">
+                            <img src="7g-logo.png" alt="7G Logo" class="about-logo">
+                        </div>
+                        <div class="card-accent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Premium <span class="text-accent">Services</span></h2>
+                <p class="section-subtitle">Comprehensive estate management solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Property Management</h3>
+                    <p class="service-desc">Complete management of residential and commercial properties, from tenant screening to maintenance.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Tenant Management</span>
+                        <span><i class="fas fa-check"></i> Rent Collection</span>
+                        <span><i class="fas fa-check"></i> Maintenance</span>
+                    </div>
+                    <a href="https://wa.me/254723704168?text=I'm interested in Property Management services" class="service-link" target="_blank">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Estate Development</h3>
+                    <p class="service-desc">End-to-end estate development services, from planning and design to construction and handover.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Site Planning</span>
+                        <span><i class="fas fa-check"></i> Architecture</span>
+                        <span><i class="fas fa-check"></i> Construction</span>
+                    </div>
+                    <a href="https://wa.me/254723704168?text=I'm interested in Estate Development services" class="service-link" target="_blank">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Facility Maintenance</h3>
+                    <p class="service-desc">Proactive maintenance programs to keep your property in pristine condition year-round.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Regular Inspections</span>
+                        <span><i class="fas fa-check"></i> Emergency Repairs</span>
+                        <span><i class="fas fa-check"></i> Upgrades</span>
+                    </div>
+                    <a href="https://wa.me/254723704168?text=I'm interested in Facility Maintenance services" class="service-link" target="_blank">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Investment Advisory</h3>
+                    <p class="service-desc">Expert guidance on real estate investments to maximize returns and minimize risks.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Market Analysis</span>
+                        <span><i class="fas fa-check"></i> Portfolio Review</span>
+                        <span><i class="fas fa-check"></i> Risk Assessment</span>
+                    </div>
+                    <a href="https://wa.me/254723704168?text=I'm interested in Investment Advisory services" class="service-link" target="_blank">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/Why Choose Us Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2 class="section-title">The <span class="text-accent">7G</span> Difference</h2>
+                <p class="section-subtitle">What sets us apart in estate management</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-number">01</div>
+                    <h3>Local Expertise</h3>
+                    <p>Deep understanding of Kenya's real estate market and regulatory landscape.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-number">02</div>
+                    <h3>Transparent Operations</h3>
+                    <p>Regular reporting and open communication with property owners at all times.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-number">03</div>
+                    <h3>Technology Driven</h3>
+                    <p>Modern tools and systems for efficient property management and tenant services.</p>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-number">04</div>
+                    <h3>Sustainable Practices</h3>
+                    <p>Eco-friendly solutions that reduce costs and environmental impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Let's Start Your <span class="text-accent">Property Journey</span></h2>
+                    <p class="contact-text">
+                        Ready to experience premium estate management? Contact us today for a free consultation 
+                        and discover how 7G can transform your property.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Call Us</h4>
+                                <a href="tel:+254723704168">+254 723 704 168</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/254723704168?text=Hello! I'm interested in your estate management services." target="_blank">Chat with us directly</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send Us a Message</h3>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service">
+                                <option value="">Select a Service</option>
+                                <option value="property">Property Management</option>
+                                <option value="development">Estate Development</option>
+                                <option value="maintenance">Facility Maintenance</option>
+                                <option value="advisory">Investment Advisory</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="7g-logo.png" alt="7G Estate Management" class="footer-logo">
+                    <p>Premium estate management solutions built on trust, innovation, and excellence.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <a href="#services">Property Management</a>
+                    <a href="#services">Estate Development</a>
+                    <a href="#services">Facility Maintenance</a>
+                    <a href="#services">Investment Advisory</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone-alt"></i> +254 723 704 168</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <p class="copyright">&copy; 2026 7G Estate Management. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254723704168?text=Hello!%20I'm%20interested%20in%20your%20estate%20management%20services." 
+       class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us!</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
