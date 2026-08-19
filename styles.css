@@ -1,21 +1,25 @@
 /* ===== CSS Variables & Reset ===== */
 :root {
-    --primary: #1a1a2e;
-    --secondary: #16213e;
-    --accent: #f59e0b;
-    --accent-dark: #d97706;
-    --accent-light: #fbbf24;
-    --orange: #ea580c;
-    --text: #ffffff;
-    --text-muted: #94a3b8;
-    --surface: #0f172a;
-    --surface-light: #1e293b;
-    --border: rgba(255,255,255,0.08);
+    --primary: #ffffff;
+    --secondary: #f8fafc;
+    --accent: #00b4dc;
+    --accent-dark: #0096b4;
+    --accent-light: #e0f7fa;
+    --purple: #3c28a0;
+    --purple-light: #5a3fc4;
+    --text: #1a1a2e;
+    --text-muted: #64748b;
+    --surface: #ffffff;
+    --surface-light: #f1f5f9;
+    --border: rgba(0,0,0,0.08);
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
-    --shadow: 0 20px 60px rgba(0,0,0,0.3);
+    --dark: #1a1a2e;
+    --gradient: linear-gradient(135deg, #00b4dc 0%, #3c28a0 100%);
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
     --transition: all 0.3s ease;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Oswald', sans-serif;
 }
 
 *, *::before, *::after {
@@ -31,7 +35,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--surface);
+    background: var(--primary);
     color: var(--text);
     line-height: 1.7;
     overflow-x: hidden;
@@ -52,14 +56,15 @@ body {
     z-index: 1000;
     padding: 16px 0;
     transition: var(--transition);
-    background: transparent;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar.scrolled {
-    background: rgba(15, 23, 42, 0.98);
-    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.98);
+    box-shadow: var(--shadow);
     padding: 10px 0;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
 .nav-container {
@@ -74,6 +79,8 @@ body {
 .nav-logo {
     display: flex;
     align-items: center;
+    gap: 12px;
+    text-decoration: none;
 }
 
 .logo-img {
@@ -84,6 +91,23 @@ body {
 
 .navbar.scrolled .logo-img {
     height: 36px;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -127,17 +151,19 @@ body {
     align-items: center;
     gap: 8px;
     background: var(--accent);
-    color: var(--primary);
+    color: var(--white);
     padding: 10px 22px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.85rem;
     transition: var(--transition);
+    border-radius: 4px;
 }
 
 .nav-cta:hover {
     background: var(--accent-dark);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 180, 220, 0.3);
 }
 
 .mobile-toggle {
@@ -153,7 +179,7 @@ body {
 .mobile-toggle span {
     width: 24px;
     height: 2px;
-    background: var(--text);
+    background: var(--dark);
     transition: var(--transition);
 }
 
@@ -173,7 +199,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    min-height: 700px;
+    min-height: 600px;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -200,17 +226,17 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        90deg,
-        rgba(26, 26, 46, 0.95) 0%,
-        rgba(22, 33, 62, 0.9) 40%,
-        rgba(15, 23, 42, 0.85) 100%
+        135deg,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(241, 245, 249, 0.8) 100%
     );
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 700px;
+    max-width: 650px;
     padding: 0 24px;
     margin-left: 8%;
 }
@@ -239,12 +265,12 @@ body {
 }
 
 .hero-title {
-    font-family: var(--font-body);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
     margin-bottom: 24px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .title-line {
@@ -279,32 +305,6 @@ body {
     animation: fadeInUp 0.6s ease forwards 0.7s;
 }
 
-.hero-stats {
-    display: flex;
-    gap: 40px;
-    margin-top: 48px;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards 0.8s;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 4px;
-}
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -316,16 +316,18 @@ body {
     transition: var(--transition);
     cursor: pointer;
     border: none;
+    border-radius: 4px;
 }
 
 .btn-primary {
     background: var(--accent);
-    color: var(--primary);
+    color: var(--white);
 }
 
 .btn-primary:hover {
     background: var(--accent-dark);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 180, 220, 0.3);
 }
 
 .btn-whatsapp {
@@ -341,7 +343,7 @@ body {
 /* ===== About Section ===== */
 .about {
     padding: 100px 0;
-    background: var(--primary);
+    background: var(--secondary);
 }
 
 .about-grid {
@@ -362,11 +364,12 @@ body {
 }
 
 .section-title {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 20px;
+    color: var(--dark);
 }
 
 .text-accent {
@@ -395,19 +398,20 @@ body {
 .feature-icon {
     width: 48px;
     height: 48px;
-    background: rgba(245, 158, 11, 0.1);
+    background: var(--accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
     color: var(--accent);
     flex-shrink: 0;
+    border-radius: 8px;
 }
 
 .feature-text h4 {
     font-size: 1rem;
     margin-bottom: 4px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .feature-text p {
@@ -423,12 +427,14 @@ body {
 .about-card {
     width: 100%;
     max-width: 350px;
-    background: var(--surface-light);
+    background: var(--white);
     padding: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
 
 .about-logo {
@@ -440,7 +446,7 @@ body {
 /* ===== Services Section ===== */
 .services {
     padding: 100px 0;
-    background: var(--surface);
+    background: var(--white);
 }
 
 .section-header {
@@ -462,11 +468,12 @@ body {
 }
 
 .service-card {
-    background: var(--primary);
+    background: var(--secondary);
     padding: 36px 28px;
     border: 1px solid var(--border);
     transition: var(--transition);
     position: relative;
+    border-radius: 8px;
 }
 
 .service-card::before {
@@ -479,6 +486,7 @@ body {
     background: var(--accent);
     transform: scaleX(0);
     transition: var(--transition);
+    border-radius: 8px 8px 0 0;
 }
 
 .service-card:hover::before {
@@ -486,12 +494,13 @@ body {
 }
 
 .service-card:hover {
-    border-color: rgba(245, 158, 11, 0.3);
+    border-color: rgba(0, 180, 220, 0.3);
+    box-shadow: var(--shadow);
 }
 
 .service-card.featured {
     border-color: var(--accent);
-    background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--primary) 100%);
+    background: var(--white);
 }
 
 .service-badge {
@@ -499,32 +508,34 @@ body {
     top: 16px;
     right: 16px;
     background: var(--accent);
-    color: var(--primary);
+    color: var(--white);
     padding: 4px 12px;
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-radius: 4px;
 }
 
 .service-icon {
     width: 56px;
     height: 56px;
-    background: rgba(245, 158, 11, 0.1);
+    background: var(--accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     color: var(--accent);
     margin-bottom: 20px;
+    border-radius: 12px;
 }
 
 .service-title {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 10px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .service-desc {
@@ -571,7 +582,7 @@ body {
 /* ===== Projects Section ===== */
 .projects {
     padding: 100px 0;
-    background: var(--primary);
+    background: var(--secondary);
 }
 
 .projects-grid {
@@ -583,22 +594,24 @@ body {
 .project-item {
     position: relative;
     height: 300px;
-    background: var(--surface);
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--white) 100%);
     overflow: hidden;
     cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--border);
 }
 
 .project-item::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(26, 26, 46, 0.95), transparent 60%);
+    background: linear-gradient(to top, rgba(26, 26, 46, 0.9), transparent 60%);
     z-index: 1;
     transition: var(--transition);
 }
 
 .project-item:hover::before {
-    background: linear-gradient(to top, rgba(245, 158, 11, 0.9), rgba(245, 158, 11, 0.3) 60%);
+    background: linear-gradient(to top, rgba(0, 180, 220, 0.95), rgba(0, 180, 220, 0.4) 60%);
 }
 
 .project-overlay {
@@ -613,16 +626,18 @@ body {
 .project-category {
     display: inline-block;
     background: var(--accent);
-    color: var(--primary);
+    color: var(--white);
     padding: 4px 12px;
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
+    border-radius: 4px;
 }
 
 .project-title {
+    font-family: var(--font-heading);
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--white);
@@ -631,13 +646,13 @@ body {
 
 .project-desc {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.8);
 }
 
 /* ===== Why Us Section ===== */
 .why-us {
     padding: 100px 0;
-    background: var(--surface);
+    background: var(--white);
 }
 
 .why-grid {
@@ -647,18 +662,20 @@ body {
 }
 
 .why-item {
-    background: var(--primary);
+    background: var(--secondary);
     padding: 36px 28px;
     border: 1px solid var(--border);
     transition: var(--transition);
+    border-radius: 8px;
 }
 
 .why-item:hover {
     border-color: var(--accent);
+    box-shadow: var(--shadow);
 }
 
 .why-number {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 3rem;
     font-weight: 700;
     color: var(--accent);
@@ -668,10 +685,11 @@ body {
 }
 
 .why-item h3 {
+    font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 10px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .why-item p {
@@ -682,7 +700,7 @@ body {
 /* ===== Contact Section ===== */
 .contact {
     padding: 100px 0;
-    background: var(--primary);
+    background: var(--secondary);
 }
 
 .contact-grid {
@@ -713,12 +731,13 @@ body {
 .contact-icon {
     width: 48px;
     height: 48px;
-    background: rgba(245, 158, 11, 0.1);
+    background: var(--accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.1rem;
     color: var(--accent);
+    border-radius: 8px;
 }
 
 .contact-icon.whatsapp-icon {
@@ -729,7 +748,7 @@ body {
 .contact-text h4 {
     font-size: 0.9rem;
     margin-bottom: 2px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .contact-text a,
@@ -745,17 +764,19 @@ body {
 }
 
 .contact-form-wrapper {
-    background: var(--surface);
+    background: var(--white);
     padding: 36px;
     border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
 .contact-form h3 {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 24px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .form-group {
@@ -767,12 +788,13 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 14px 16px;
-    background: var(--primary);
+    background: var(--secondary);
     border: 1px solid var(--border);
     color: var(--text);
     font-family: var(--font-body);
     font-size: 0.9rem;
     transition: var(--transition);
+    border-radius: 4px;
 }
 
 .form-group input:focus,
@@ -780,6 +802,7 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 220, 0.1);
 }
 
 .form-group input::placeholder,
@@ -790,14 +813,14 @@ body {
 .form-group select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 16px center;
     background-size: 16px;
 }
 
 .form-group select option {
-    background: var(--primary);
+    background: var(--secondary);
     color: var(--text);
 }
 
@@ -808,9 +831,9 @@ body {
 
 /* ===== Footer ===== */
 .footer {
-    background: var(--primary);
+    background: var(--dark);
     padding: 60px 0 30px;
-    border-top: 1px solid var(--border);
+    color: var(--white);
 }
 
 .footer-grid {
@@ -824,10 +847,11 @@ body {
     height: 50px;
     width: auto;
     margin-bottom: 16px;
+    filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.7);
     font-size: 0.9rem;
     max-width: 280px;
 }
@@ -841,25 +865,25 @@ body {
 .social-link {
     width: 40px;
     height: 40px;
-    background: var(--surface);
+    background: rgba(255,255,255,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
     transition: var(--transition);
-    border: 1px solid var(--border);
+    border-radius: 4px;
 }
 
 .social-link:hover {
     background: var(--accent);
-    color: var(--primary);
-    border-color: var(--accent);
+    color: var(--white);
 }
 
 .footer-links h4,
 .footer-contact h4 {
-    font-size: 0.95rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 16px;
     color: var(--white);
@@ -867,7 +891,7 @@ body {
 
 .footer-links a {
     display: block;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
     padding: 6px 0;
     transition: var(--transition);
@@ -882,7 +906,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.7);
     padding: 6px 0;
     font-size: 0.9rem;
 }
@@ -897,11 +921,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding-top: 24px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .copyright {
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.5);
     font-size: 0.85rem;
 }
 
@@ -939,8 +963,8 @@ body {
 .whatsapp-tooltip {
     position: absolute;
     right: 72px;
-    background: var(--primary);
-    color: var(--text);
+    background: var(--dark);
+    color: var(--white);
     padding: 8px 14px;
     font-size: 0.8rem;
     font-weight: 500;
@@ -948,7 +972,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
-    border: 1px solid var(--border);
+    border-radius: 4px;
 }
 
 .whatsapp-float:hover .whatsapp-tooltip {
@@ -993,7 +1017,7 @@ body {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(15, 23, 42, 0.98);
+        background: rgba(255, 255, 255, 0.98);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -1017,6 +1041,10 @@ body {
         z-index: 1001;
     }
     
+    .mobile-toggle span {
+        background: var(--dark);
+    }
+    
     .hero-content {
         margin-left: 0;
         text-align: center;
@@ -1024,10 +1052,6 @@ body {
     }
     
     .hero-buttons {
-        justify-content: center;
-    }
-    
-    .hero-stats {
         justify-content: center;
     }
     
@@ -1052,7 +1076,7 @@ body {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     
     .hero-buttons {
@@ -1063,11 +1087,6 @@ body {
     .btn {
         width: 100%;
         justify-content: center;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 20px;
     }
     
     .services-grid {
@@ -1081,6 +1100,14 @@ body {
         height: 50px;
         font-size: 1.5rem;
     }
+    
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    
+    .logo-sub {
+        font-size: 0.6rem;
+    }
 }
 
 /* ===== Smooth Scroll Offset ===== */
@@ -1091,7 +1118,7 @@ section[id] {
 /* ===== Selection Color ===== */
 ::selection {
     background: var(--accent);
-    color: var(--primary);
+    color: var(--white);
 }
 
 /* ===== Scrollbar ===== */
@@ -1100,7 +1127,7 @@ section[id] {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--primary);
+    background: var(--secondary);
 }
 
 ::-webkit-scrollbar-thumb {

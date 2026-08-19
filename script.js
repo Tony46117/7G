@@ -55,7 +55,7 @@ window.addEventListener('scroll', updateActiveLink);
 // ===== Scroll Reveal Animation =====
 function setupScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.service-card, .why-item, .contact-item, .feature-item, .project-item, .stat-item'
+        '.service-card, .why-item, .contact-item, .feature-item, .project-item'
     );
     
     const revealObserver = new IntersectionObserver((entries) => {
@@ -80,49 +80,6 @@ function setupScrollReveal() {
 
 setupScrollReveal();
 
-// ===== Counter Animation =====
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = counter.textContent;
-        const numericValue = parseInt(target);
-        const suffix = target.replace(/[0-9]/g, '');
-        
-        if (isNaN(numericValue)) return;
-        
-        let current = 0;
-        const increment = numericValue / 50;
-        const duration = 2000;
-        const stepTime = duration / 50;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= numericValue) {
-                counter.textContent = target;
-                clearInterval(timer);
-            } else {
-                counter.textContent = Math.floor(current) + suffix;
-            }
-        }, stepTime);
-    });
-}
-
-// Trigger counter animation when stats come into view
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const statsSection = document.querySelector('.hero-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
-
 // ===== Form Handling =====
 const contactForm = document.getElementById('contactForm');
 
@@ -138,10 +95,10 @@ contactForm.addEventListener('submit', (e) => {
     
     // Create WhatsApp message
     let whatsappMessage = `Hello! I'm ${name}.\n\n`;
-    whatsappMessage += `📞 Phone: ${phone}\n`;
-    whatsappMessage += `📧 Email: ${email}\n`;
-    if (service) whatsappMessage += `🏗️ Project Type: ${service}\n`;
-    whatsappMessage += `\n📝 Message: ${message}`;
+    whatsappMessage += `Phone: ${phone}\n`;
+    whatsappMessage += `Email: ${email}\n`;
+    if (service) whatsappMessage += `Project Type: ${service}\n`;
+    whatsappMessage += `\nMessage: ${message}`;
     
     // Encode for WhatsApp URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
