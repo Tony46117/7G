@@ -55,7 +55,7 @@ window.addEventListener('scroll', updateActiveLink);
 // ===== Scroll Reveal Animation =====
 function setupScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.service-card, .why-item, .contact-item, .feature-item, .project-item'
+        '.service-card, .why-item, .contact-item, .feature-item'
     );
     
     const revealObserver = new IntersectionObserver((entries) => {
@@ -145,107 +145,4 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ===== Gallery Filter =====
-const filterBtns = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filter = btn.dataset.filter;
-        
-        galleryItems.forEach(item => {
-            if (filter === 'all' || item.dataset.category === filter) {
-                item.style.display = 'block';
-                setTimeout(() => item.style.opacity = '1', 10);
-            } else {
-                item.style.opacity = '0';
-                setTimeout(() => item.style.display = 'none', 300);
-            }
-        });
-    });
-});
-
-// ===== Lightbox =====
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxTitle = document.getElementById('lightbox-title');
-const lightboxLocation = document.getElementById('lightbox-location');
-let currentIndex = 0;
-let visibleItems = [];
-
-function updateVisibleItems() {
-    visibleItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
-}
-
-function openLightbox(index) {
-    updateVisibleItems();
-    currentIndex = index;
-    const item = visibleItems[currentIndex];
-    const img = item.querySelector('img');
-    const title = item.querySelector('h4').textContent;
-    const location = item.querySelector('p').textContent;
-    
-    lightboxImg.src = img.src.replace('w=600&h=400', 'w=1200&h=800');
-    lightboxImg.alt = img.alt;
-    lightboxTitle.textContent = title;
-    lightboxLocation.textContent = location;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function navigateLightbox(direction) {
-    updateVisibleItems();
-    currentIndex = (currentIndex + direction + visibleItems.length) % visibleItems.length;
-    openLightbox(currentIndex);
-}
-
-// Gallery click handlers
-galleryItems.forEach((item, index) => {
-    item.addEventListener('click', (e) => {
-        if (!e.target.closest('.gallery-zoom')) return;
-        updateVisibleItems();
-        const actualIndex = visibleItems.indexOf(item);
-        openLightbox(actualIndex >= 0 ? actualIndex : 0);
-    });
-    
-    // Also open on image click
-    item.querySelector('img').addEventListener('click', () => {
-        updateVisibleItems();
-        const actualIndex = visibleItems.indexOf(item);
-        openLightbox(actualIndex >= 0 ? actualIndex : 0);
-    });
-});
-
-document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-document.querySelector('.lightbox-prev').addEventListener('click', () => navigateLightbox(-1));
-document.querySelector('.lightbox-next').addEventListener('click', () => navigateLightbox(1));
-
-// Close on background click
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') navigateLightbox(-1);
-    if (e.key === 'ArrowRight') navigateLightbox(1);
-});
-
-// ===== Page Load Animation =====
-window.addEventListener('load', () => {
-    document.body.classList.add('js-loaded');
-});
-
-// Initialize body opacity via CSS class
-document.body.classList.add('js-loaded');
