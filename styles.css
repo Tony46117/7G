@@ -699,21 +699,22 @@ body {
 .design-quote-content {
     position: relative;
     z-index: 10;
-    max-width: 700px;
+    max-width: 420px;
+    margin-left: 3%;
 }
 
 .quote-block {
-    border-left: 4px solid var(--accent);
-    padding-left: 32px;
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
 }
 
 .big-quote {
     font-family: var(--font-heading);
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.4;
     color: var(--white);
-    margin-bottom: 24px;
+    margin-bottom: 14px;
     font-style: italic;
 }
 
