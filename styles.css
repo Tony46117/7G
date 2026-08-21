@@ -599,6 +599,18 @@ body {
     border: 1px solid var(--border);
 }
 
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project-item:hover img {
+    transform: scale(1.08);
+}
+
 .project-item::before {
     content: '';
     position: absolute;

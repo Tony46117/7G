@@ -55,7 +55,7 @@ window.addEventListener('scroll', updateActiveLink);
 // ===== Scroll Reveal Animation =====
 function setupScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.service-card, .why-item, .contact-item, .feature-item'
+        '.service-card, .why-item, .contact-item, .feature-item, .project-item'
     );
     
     const revealObserver = new IntersectionObserver((entries) => {
